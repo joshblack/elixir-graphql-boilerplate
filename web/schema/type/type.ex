@@ -8,4 +8,5 @@ defmodule Unity.Schema.Type do
 
   import_types Unity.Schema.Type.Node
   import_types Unity.Schema.Type.Viewer
+  import_types Unity.Schema.Type.Team
 end

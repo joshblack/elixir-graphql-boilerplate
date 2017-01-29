@@ -4,10 +4,13 @@ defmodule Unity.Schema.Type.Viewer do
   working with Relay-specific clients since fragments will be based off of this
   Viewer Type.
   """
+  # alias Unity.Resolver.Team
 
   use Unity.Web, :type
 
   object :viewer do
-    field :me, non_null(:string)
+    connection field :teams, node_type: :team do
+      resolve &Team.all/2
+    end
   end
 end

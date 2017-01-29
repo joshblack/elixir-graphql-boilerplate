@@ -26,6 +26,14 @@ defmodule Unity.Web do
 
       @primary_key {:id, :binary_id, autogenerate: true}
       @foreign_key_type :binary_id
+
+      defp slugify(changeset, field) do
+        if value = get_change(changeset, field) do
+          put_change(changeset, :slug, Slugger.slugify_downcase(value))
+        else
+          changeset
+        end
+      end
     end
   end
 
@@ -80,6 +88,14 @@ defmodule Unity.Web do
 
       # Enable helpers for batching associated requests
       use Absinthe.Ecto, repo: Heart.Repo
+    end
+  end
+
+  def resolver do
+    quote do
+      alias Heart.Repo
+      import Ecto
+      import Ecto.Query
     end
   end
 

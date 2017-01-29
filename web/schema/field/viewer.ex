@@ -8,7 +8,7 @@ defmodule Unity.Schema.Field.Viewer do
   object :viewer_field do
     field :viewer, :viewer do
       resolve fn _, _ ->
-        {:ok, %{me: "Josh"}}
+        {:ok, %{}}
       end
     end
   end

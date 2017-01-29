@@ -4,5 +4,7 @@ defmodule Unity.Schema.Mutation do
   """
 
   use Absinthe.Schema.Notation
+
+  import_types Unity.Schema.Mutation.Team
 end
 

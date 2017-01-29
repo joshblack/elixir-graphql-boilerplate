@@ -9,6 +9,7 @@ defmodule Unity.Schema.Type.Node do
 
   node interface do
     resolve_type fn
+      %Unity.Team{}, _ -> :team
       # %Heart.Metric{}, _ -> :metric
       _, _ -> nil
     end

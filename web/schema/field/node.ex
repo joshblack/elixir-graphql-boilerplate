@@ -7,13 +7,13 @@ defmodule Unity.Schema.Field.Node do
   use Absinthe.Schema.Notation
   use Absinthe.Relay.Schema.Notation
 
-  # alias Heart.Resolver.Organization
+  alias Unity.Resolver.Team
 
   object :node_field do
     node field do
       resolve fn
-        # %{type: :organization, id: id}, _ ->
-          # Organization.find(%{id: id}, %{})
+        %{type: :team, id: id}, _ ->
+          Team.find(%{id: id}, %{})
         _, _ ->
           nil
       end
