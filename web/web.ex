@@ -87,13 +87,13 @@ defmodule Unity.Web do
       use Absinthe.Relay.Schema.Notation
 
       # Enable helpers for batching associated requests
-      use Absinthe.Ecto, repo: Heart.Repo
+      use Absinthe.Ecto, repo: Unity.Repo
     end
   end
 
   def resolver do
     quote do
-      alias Heart.Repo
+      alias Unity.Repo
       import Ecto
       import Ecto.Query
     end

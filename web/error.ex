@@ -18,8 +18,8 @@ defmodule Unity.Error do
   def format(changeset) do
     Enum.map(changeset.errors, fn {field, detail} ->
       %{
+        message: "Invalid Attribute for field `#{field}`",
         source: field,
-        title: "Invalid Attribute",
         detail: render_detail(detail)
       }
     end)

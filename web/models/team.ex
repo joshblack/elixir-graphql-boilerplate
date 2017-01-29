@@ -13,16 +13,15 @@ defmodule Unity.Team do
     timestamps()
   end
 
-  @required_fields ~w(name, description, slug, location)
+  @required_fields ~w(name description slug location)
 
   @doc """
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:name, :description, :location], [:slug])
+    |> cast(params, @required_fields)
     |> slugify(:name)
-    |> validate_required(@required_fields)
+    |> validate_required([:name, :description])
     |> unique_constraint(:name)
-    |> unique_constraint(:slug)
   end
 end

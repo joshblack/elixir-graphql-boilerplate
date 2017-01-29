@@ -12,6 +12,6 @@ defmodule Unity.Repo.Migrations.AddTeamsTable do
       timestamps()
     end
 
-    create unique_index(:teams, [:name, :slug])
+    create unique_index(:teams, [:name])
   end
 end
